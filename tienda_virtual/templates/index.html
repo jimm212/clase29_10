@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Tienda Virtual</title>
+</head>
+<body>
+    <header>
+        <h1>Pagina Principal</h1>
+    </header>
+
+    <nav>
+        <a href="{% url 'productos:index'  %}">Ir a Productos</a>
+
+        <a href="{% url 'ofertas:index' %}">Ir a Ofertas</a>
+    </nav>
+
+    <div>
+        <h2>Bienvenidos a la Tienda Virtual</h2>
+    </div>
+
+    <div>
+        <h3>Aquí puedes navegar a las otras app o regresar al inicio</h3>
+        
+        <a href="{% url 'productos:index'  %}">Ir a Productos</a> 
+        <br>
+        <a href="{% url 'ofertas:index' %}">Ir a Ofertas</a>
+    </div>
+    
+    <br>
+    <div class="container">
+        <button id="show-alert">SUPER BOTÓN</button>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

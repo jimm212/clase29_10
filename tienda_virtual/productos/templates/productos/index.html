@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Productos</title>
+</head>
+<body>
+
+    <nav class='nav-link'>
+        <a href="{% url 'ofertas:index'  %}">Ir a Ofertas</a>
+        <a href="{% url 'index' %}">Ir a la pagina Principal</a>
+    </nav>
+
+    <div>
+        <h1>Bienvenidos a la sección de Productos</h1>
+    </div>
+
+    <div>
+        <h2> Listado de Productos</h2>
+        <!--
+        <style>
+            table {
+                margin: 0 auto; /* Centrar la tabla */
+                border-collapse: separate;
+                border-spacing: 15px; /* Espacio entre las celdas */
+                width: 80%; /* Ajusta el ancho de la tabla */
+            }
+            th, td {
+                padding: 10px;
+                text-align: center;
+                border: 1px solid #0004ff; /* Bordes para las celdas */
+            }
+            th {
+                background-color: #ff0000; /* Color de fondo para los encabezados */
+            }
+        </style>
+        -->
+        <div class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Categoría</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for producto in productos %}
+                    <tr>
+                        <td>{{ producto.nombre }}</td>
+                        <td>{{ producto.precio }}</td>
+                        <td>{{ producto.Categoria.nombre }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="3">
+                            <h5>No hay productos disponibles</h5>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
